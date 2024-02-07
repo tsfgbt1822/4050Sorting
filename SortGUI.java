@@ -216,7 +216,7 @@ public class SortGUI {
 					//Sorting the array in the iterative merge sort method
 					sortArea.quickSort();
 					//The amount of time taken for iterative merge sort took
-					qsort_time_taken.setText((imergeTime / 1000) + " Seconds");
+					qsort_time_taken.setText((qsortTime / 1000) + " Seconds");
 					//iterative merge sort has finished/been clicked
 					Quick_Sort_Done = true;
 					//setting all booleans false except for reset
