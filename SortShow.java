@@ -261,6 +261,69 @@ public class SortShow extends JPanel {
 	}
 
 	//////////////////////////////////////////////////////////////////////	
+
+	//calls actual quick sort function (seperate for recursion/ time tracking)
+	public void quickSort()
+	{
+		//getting date and timme of start of quick sort
+		Calendar start = Calendar.getInstance();
+		//calls quick function to quicksort
+		quick(lines_lengths, 0, total_number_of_lines - 1);
+		//gets date and time of end of quick sort
+		Calendar end = Calendar.getInstance();
+		//getting time it took to execute quick sort
+		//subtracting end time with start time
+		SortGUI.qsortTime = end.getTime().getTime() - start.getTime().getTime();
+	}
+
+	//
+	public void quick(int [] arr, int low, int high)
+	{
+		//updates lines
+		paintComponent(this.getGraphics());
+		//if low is less than high, execute
+		//else, they are equal and we have finished sorting
+		if(low < high)
+		{
+			//call partition function to get pivot
+			int pivot = partition(arr, low, high);
+
+			//Recursive call to quick sort, one for left of pivot, one for right of pivot
+			quick(arr, low, pivot-1);
+			quick(arr, pivot + 1, high);
+		}
+	}
+
+	//partitions
+	public int partition(int [] arr, int low, int high)
+	{
+		//selects pivot element as last element
+		int pivot = arr[high];
+		//index of smallest element
+		int l = low-1;
+
+		//iterates through array
+		for(int i = low; i < high; i++)
+		{
+			//if current element is smaller or equal to pivot,
+			//increment smallest element indexx
+			//swap smallest and i
+			if(arr[i] <= pivot)
+			{
+				l++;
+				swap(i,l);
+				}
+		}
+
+		//swap pivot and l + 1
+		swap(l+1, high);
+		
+		//return new pivot
+		return l + 1;
+	}
+
+
+	//////////////////////////////////////////////////////////////////////
 		
 		//This method resets the window to the scrambled lines display
 		public void reset(){
