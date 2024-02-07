@@ -102,7 +102,7 @@ public class SortShow extends JPanel {
 			int imin = first;
 
 			//loop through all elements of array from start to last
-			for(int i = first; i < last; i++)
+			for(int i = 0; i < last-1; i++)
 			{
 				//if value at index i is less than value currently held in position of imin
 				// assign index to imin, is now holding the smallest value found so far
@@ -113,7 +113,6 @@ public class SortShow extends JPanel {
 			//return index of smallest value
 			return imin;
 		}
-		
 	///////////////////////////////////////////////////////////////////////////////////
 		
 		//recursive merge sort method
