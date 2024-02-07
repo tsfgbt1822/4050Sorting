@@ -207,7 +207,6 @@ public class SortShow extends JPanel {
 			//redrawing the lines_lengths
 			paintComponent(this.getGraphics());
 			//Causing a delay for 10ms
-			delay(10);
 		}
 		// Returns index of last merged pair
 		return beginSegment1;
