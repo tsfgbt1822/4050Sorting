@@ -246,6 +246,7 @@ public class SortGUI {
 						selection_time_taken.setText("");
 						rmerge_time_taken.setText("");
 						imerge_time_taken.setText("");
+						qsort_time_taken.setText("");
 
 					} else if (Selection_Done && Recersive_Merge_Done && Iterative_Merge_Done) {
 						Set_Available_Chooses(false, false, false, true, false);
