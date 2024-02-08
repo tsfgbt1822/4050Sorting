@@ -116,37 +116,61 @@ public class SortShow extends JPanel {
 	///////////////////////////////////////////////////////////////////////////////////
 		
 		//recursive merge sort method
-		public void R_MergeSort(){
-			//getting the date and time when the recursive merge sort starts
+		public void R_MergeSort() {
+			// Getting the date and time when the recursive merge sort starts
 			Calendar start = Calendar.getInstance();
-			//assigning the size for the tempArray below
-
-			//You need to complete this part.
-
+		
+			// Start the recursive sorting process
+			R_MergeSort(0, total_number_of_lines - 1);
+		
 			Calendar end = Calendar.getInstance();
-			//getting the time it took for the iterative merge sort to execute
-			//subtracting the end time with the start time
-	        SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
-			
+			// Calculating the time it took for the recursive merge sort to execute
+			SortGUI.rmergeTime = end.getTime().getTime() - start.getTime().getTime();
 		}
 		
-		//recursive merge sort method
-		public void R_MergeSort(int first, int last){
-			if(first < last){
-
-				//You need to complete this part.
-
-				//Causing a delay for 10ms
+		// Recursive merge sort method with array bounds
+		public void R_MergeSort(int first, int last) {
+			paintComponent(this.getGraphics());
+			if (first < last) {
+				int mid = (first + last) / 2;
+				R_MergeSort(first, mid); // Sort the first half
+				R_MergeSort(mid + 1, last); // Sort the second half
+				R_Merge(first, mid, last); // Merge the sorted halves
+		
 				delay(10); 
 			}
 		}
-
 		
-		//recursive merge sort method
-		public void R_Merge(int first, int mid, int last){
-
-			//You need to complete this part.
-				
+		// Method to merge two sorted halves
+		public void R_Merge(int first, int mid, int last) {
+			// Temporary array to hold merged result
+			int[] temp = new int[last - first + 1];
+		
+			int i = first, j = mid + 1, k = 0;
+		
+			// Merge the two halves into temp array
+			while (i <= mid && j <= last) {
+				if (lines_lengths[i] <= lines_lengths[j]) {
+					temp[k++] = lines_lengths[i++];
+				} else {
+					temp[k++] = lines_lengths[j++];
+				}
+			}
+		
+			// Copy the remaining elements from the first half, if any
+			while (i <= mid) {
+				temp[k++] = lines_lengths[i++];
+			}
+		
+			// Copy the remaining elements from the second half, if any
+			while (j <= last) {
+				temp[k++] = lines_lengths[j++];
+			}
+		
+			// Copy the merged elements back into the original array
+			for (i = first, k = 0; i <= last; i++, k++) {
+				lines_lengths[i] = temp[k];
+			}
 		}
 		
 		//
@@ -323,6 +347,13 @@ public class SortShow extends JPanel {
 
 
 	//////////////////////////////////////////////////////////////////////
+
+	public void bubbleSort(){
+
+	}
+
+	//////////////////////////////////////////////////////////////////////
+
 		
 		//This method resets the window to the scrambled lines display
 		public void reset(){
