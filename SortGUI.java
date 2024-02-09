@@ -178,8 +178,16 @@ public class SortGUI {
 			time_Panel.add(qsort_time_label);
 			//adds qsort_time_taken to time_Panel
 			time_Panel.add(qsort_time_taken);
+			//adds bubble_time_label to time_Panel
+			time_Panel.add(bubble_time_label);
+			//adds bubble_time_taken to time_Panel
+			time_Panel.add(bubble_time_taken);
+			//adds insertion_time_label to time_Panel
+			time_Panel.add(insertion_time_label);
 			//adds insertion_time_taken to time_Panel
 			time_Panel.add(insertion_time_taken);
+			//adds shell_time_label to time_Panel
+			time_Panel.add(shell_time_label);
 			//adds shell_time_taken to time_Panel
 			time_Panel.add(shell_time_taken);
 
@@ -316,7 +324,7 @@ public class SortGUI {
 					//Sorting the array in the iterative merge sort method
 					sortArea.shellSort();
 					//The amount of time taken for iterative merge sort took
-					shell_time_taken.setText((insertionSortTime / 1000) + " Seconds");
+					shell_time_taken.setText((shellSortTime / 1000) + " Seconds");
 					//iterative merge sort has finished/been clicked
 					Shell_Sort_Done = true;
 					//setting all booleans false except for reset
@@ -337,18 +345,24 @@ public class SortGUI {
 					//There are many different combinations of what could be clicked
 					//The following code below covers all possibilities
 					//FOr the following use the same comments as above
-					if (Selection_Done && Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done) {
+					if (Selection_Done && Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done && Recersive_Merge_Done && Bubble_Sort_Done) {
 						//
 						scramble_button.setEnabled(true);
 						Recersive_Merge_Done = false;
 						Iterative_Merge_Done = false;
 						Selection_Done = false;
 						Quick_Sort_Done = false;
+						Insertion_Sort_Done = false;
+						Shell_Sort_Done = false;
+						Bubble_Sort_Done = false;
 						Set_Available_Chooses(false, false, false, false, false);
 						selection_time_taken.setText("");
 						rmerge_time_taken.setText("");
 						imerge_time_taken.setText("");
 						qsort_time_taken.setText("");
+						insertion_time_taken.setText("");
+						shell_time_taken.setText("");
+						bubble_time_taken.setText("");
 
 					} else if (Selection_Done && Recersive_Merge_Done && Iterative_Merge_Done) {
 						Set_Available_Chooses(false, false, false, true, false);

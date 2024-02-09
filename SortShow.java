@@ -171,6 +171,7 @@ public class SortShow extends JPanel {
 		for (i = first, k = 0; i <= last; i++, k++) {
 			lines_lengths[i] = temp[k];
 		}
+
 	}
 
 	//
@@ -349,6 +350,8 @@ public class SortShow extends JPanel {
 	//////////////////////////////////////////////////////////////////////
 
 	public void bubbleSort() {
+		//Get start time
+		Calendar start = Calendar.getInstance();
 		// track if a swap has occurred during a pass
 		boolean swapped;
 
@@ -378,12 +381,18 @@ public class SortShow extends JPanel {
 
 			delay(10);
 		}
+		//getting time it took to execute quick sort
+		Calendar end = Calendar.getInstance();
+		//subtracting end time with start time
+		SortGUI.bubbleSortTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 
 	//////////////////////////////////////////////////////////////////////
 
 	public void insertionSort(){
+		//Get start time
+		Calendar start = Calendar.getInstance();
 		//loop through array starting at second element
 		for(int i = 1; i < total_number_of_lines; i++){
 			//variables for
@@ -402,9 +411,15 @@ public class SortShow extends JPanel {
 			// Introduce a delay for visualization purposes
 			delay(10);
 		}
+		//getting time it took to execute quick sort
+		Calendar end = Calendar.getInstance();
+		//subtracting end time with start time
+		SortGUI.insertionSortTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	public void shellSort(){
+		//Get start time
+		Calendar start = Calendar.getInstance();
 		int gap = total_number_of_lines/2;
 		for(; gap > 0; gap /= 2){
 			for(int i = gap; i < total_number_of_lines; i+=1){
@@ -424,6 +439,10 @@ public class SortShow extends JPanel {
 				delay(10);
 			}
 		}
+		//getting time it took to execute quick sort
+		Calendar end = Calendar.getInstance();
+		//subtracting end time with start time
+		SortGUI.shellSortTime = end.getTime().getTime() - start.getTime().getTime();
 	}
 
 	/////////////////////////////////////////////////////////////////////
