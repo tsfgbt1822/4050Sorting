@@ -398,7 +398,7 @@ public class SortGUI {
 
 		}
 
-		//method that sets if the button are enabled or disabled
+		//method which sets if the button are enabled or disabled
 		public void Set_Available_Chooses(boolean selection_state, boolean rmerge_state, boolean imerge_state, boolean qsort_state,
 										  boolean reset_state) {
 			this.selection.setEnabled(selection_state);
