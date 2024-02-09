@@ -296,7 +296,7 @@ public class SortGUI {
 				}
 			});
 
-			//Creates an action listener for insertion sort button
+			//Creating an action listener for insertion sort button
 			insertion.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the iterative merge sort method
