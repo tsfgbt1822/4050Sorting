@@ -57,12 +57,13 @@ public class SortGUI {
 		//Setting a title to the GUI window
 		screen.setTitle("Assignment-1 by Abdelnasser Ouda");
 		//setting the size of the window
-		screen.setSize(975+sortArea.total_number_of_lines, 450);
+		screen.setSize(975 + sortArea.total_number_of_lines, 450);
 		//the operation when the frame is closed
 		screen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//is set to true to display the frame
 		screen.setVisible(true);
 	}
+
 	//A public class that extends JFrame
 	public class MyScreen extends JFrame {
 		//making a scramble button with a text "Scramble Lines" on it
@@ -208,7 +209,7 @@ public class SortGUI {
 			//placing the sortArea object in the center of the window
 			add(sortArea, BorderLayout.CENTER);
 			//setting all booleans to false
-			Set_Available_Chooses(false, false, false, false, false, false, false,false);
+			Set_Available_Chooses(false, false, false, false, false, false, false, false);
 
 			//The following code is for creating a listener for each GUI element
 
@@ -236,7 +237,7 @@ public class SortGUI {
 					//The amount of time taken for selection sort took
 					selection_time_taken.setText(selectionTime / 1000 + " Seconds");
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false, false, false, false, false, false, false,  true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
 
@@ -250,7 +251,7 @@ public class SortGUI {
 					//recursive merge sort has finished/been clicked
 					Recersive_Merge_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false, false, false, false, false, false, false,true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
 
@@ -264,7 +265,7 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					Iterative_Merge_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false, false, false, false,false, false, false, true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
 
@@ -278,7 +279,7 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					Quick_Sort_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false, false, false, false, false, false, false,true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
 
@@ -302,7 +303,7 @@ public class SortGUI {
 					// Update GUI to reflect the sorted state
 					// sortArea.repaint(); // Call repaint() to update the GUI with sorted array
 					// Disable all sort buttons except Reset
-					Set_Available_Chooses(false, false, false, false,  false, false, false,true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
 
@@ -316,7 +317,7 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					Insertion_Sort_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false, false, false, false, false, false, false,true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
 
@@ -330,10 +331,9 @@ public class SortGUI {
 					//iterative merge sort has finished/been clicked
 					Shell_Sort_Done = true;
 					//setting all booleans false except for reset
-					Set_Available_Chooses(false, false, false, false, false, false, false,true);
+					Set_Available_Chooses(false, false, false, false, false, false, false, true);
 				}
 			});
-
 
 
 			//Creating an action listener for reset button
@@ -395,40 +395,40 @@ public class SortGUI {
 					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done) {
 						Set_Available_Chooses(false, false, false, false, false, true, true, false);
 
-					}else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, false, false, false, true, false, true, false);
 
-					}else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, false, false, true, true, false, false);
 
-					}else if (Recersive_Merge_Done &&Iterative_Merge_Done && Selection_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, false, false, false, true, false, true, false);
 
-					}else if (Recersive_Merge_Done&&Iterative_Merge_Done&&Selection_Done&&Bubble_Sort_Done&&Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Bubble_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, false, true, false, true, false, false);
 
-					} else if (Recersive_Merge_Done&&Iterative_Merge_Done&&Selection_Done&&Insertion_Sort_Done&&Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, false, true, true, false, false, false);
 
-					} else if (Recersive_Merge_Done&&Iterative_Merge_Done&&Quick_Sort_Done&&Bubble_Sort_Done&&Insertion_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(true, false, false, false, false, false, true, false);
 
-					} else if (Recersive_Merge_Done&&Iterative_Merge_Done&&Quick_Sort_Done&&Bubble_Sort_Done&&Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Bubble_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(true, false, false, false, false, true, false, false);
 
-					} else if (Recersive_Merge_Done&&Iterative_Merge_Done&&Quick_Sort_Done&&Insertion_Sort_Done&&Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(true, false, false, false, true, false, false, false);
 
-					} else if (Recersive_Merge_Done&&Iterative_Merge_Done&&Bubble_Sort_Done&&Insertion_Sort_Done&&Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Bubble_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(true, false, false, true, false, false, false, false);
 
 					} else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, false, true, false, false, false, true, false);
 
-					}else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done && Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, true, false, false, true, false, false);
 
-					}else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, true, false, true, false, false, false);
 
 					} else if (Recersive_Merge_Done && Selection_Done && Bubble_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
@@ -437,16 +437,16 @@ public class SortGUI {
 					} else if (Recersive_Merge_Done && Quick_Sort_Done && Bubble_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(true, false, true, false, false, false, false, false);
 
-					}else if (Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
+					} else if (Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, true, false, false, false, false, true, false);
 
 					} else if (Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, true, false, false, false, true, false, false);
 
-					}else if (Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
+					} else if (Iterative_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, true, false, false, true, false, false, false);
 
-					}else if (Iterative_Merge_Done && Selection_Done && Bubble_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
+					} else if (Iterative_Merge_Done && Selection_Done && Bubble_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, true, false, true, false, false, false, false);
 
 					} else if (Iterative_Merge_Done && Quick_Sort_Done && Bubble_Sort_Done && Insertion_Sort_Done && Shell_Sort_Done) {
@@ -458,7 +458,7 @@ public class SortGUI {
 
 
 						/////////////////////////////////Three have not been selected//////////////////////////////////////////////
-					}else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Quick_Sort_Done) {
 						Set_Available_Chooses(false, false, false, false, true, true, true, false);
 
 					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Bubble_Sort_Done) {
@@ -467,13 +467,13 @@ public class SortGUI {
 					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, false, false, true, true, false, true, false);
 
-					}else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, false, true, true, true, false, false);
 
-					} else if(Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Bubble_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Bubble_Sort_Done) {
 						Set_Available_Chooses(true, false, false, false, false, true, true, false);
 
-					} else if(Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Insertion_Sort_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(true, false, false, true, false, true, false, false);
 
 					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done && Shell_Sort_Done) {
@@ -488,10 +488,10 @@ public class SortGUI {
 					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Insertion_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(true, false, false, true, true, false, false, false);
 
-					}else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done) {
+					} else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Bubble_Sort_Done) {
 						Set_Available_Chooses(false, false, true, false, false, true, true, false);
 
-					}else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done) {
+					} else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, false, true, false, true, false, true, false);
 
 					} else if (Recersive_Merge_Done && Selection_Done && Quick_Sort_Done && Shell_Sort_Done) {
@@ -500,7 +500,7 @@ public class SortGUI {
 					} else if (Recersive_Merge_Done && Selection_Done && Bubble_Sort_Done && Insertion_Sort_Done) {
 						Set_Available_Chooses(false, false, true, true, false, false, true, false);
 
-					}else if (Recersive_Merge_Done && Selection_Done && Bubble_Sort_Done && Shell_Sort_Done) {
+					} else if (Recersive_Merge_Done && Selection_Done && Bubble_Sort_Done && Shell_Sort_Done) {
 						Set_Available_Chooses(false, false, true, true, false, true, false, false);
 
 					} else if (Recersive_Merge_Done && Selection_Done && Insertion_Sort_Done && Shell_Sort_Done) {
@@ -566,7 +566,7 @@ public class SortGUI {
 
 						///////////////////////////////////////Only 3 are selected//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-					}else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done) {
+					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Selection_Done) {
 						Set_Available_Chooses(false, false, false, true, true, true, true, false);
 
 					} else if (Recersive_Merge_Done && Iterative_Merge_Done && Quick_Sort_Done) {
@@ -728,10 +728,10 @@ public class SortGUI {
 						Set_Available_Chooses(true, true, true, true, true, false, true, false);
 
 					} else if (Shell_Sort_Done) {
-						Set_Available_Chooses(true, true, true, true, true, true,false, false);
+						Set_Available_Chooses(true, true, true, true, true, true, false, false);
 
 					} else {
-							Set_Available_Chooses(true, true, true, true, true, true, true, false);
+						Set_Available_Chooses(true, true, true, true, true, true, true, false);
 					}
 				}
 			});
@@ -750,4 +750,15 @@ public class SortGUI {
 			this.shell.setEnabled(shell_state);
 			this.reset.setEnabled(reset_state);
 		}
+
+		//main method
+
+
+
 	}
+	public static void main(String[] args) {
+		//initialize the class
+		SortGUI sort_GUI = new SortGUI();
+
+	}
+}
