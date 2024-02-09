@@ -55,6 +55,7 @@ public class SortShow extends JPanel {
 		}
 		//Drawing the now scrambled lines_lengths
 		paintComponent(this.getGraphics());
+		delay(10);
 	}
 
 	//Swapping method that swaps two elements in the lines_lengths array
@@ -84,6 +85,7 @@ public class SortShow extends JPanel {
 			imin = getIndexOfSmallest(i, size - 1);
 			swap(imin, i);
 			paintComponent(this.getGraphics());
+			delay(10);
 			System.out.println(lines_lengths[i]);
 		}
 
@@ -230,6 +232,7 @@ public class SortShow extends JPanel {
 			beginSegment1 = endSegment2 + 1;
 			//redrawing the lines_lengths
 			paintComponent(this.getGraphics());
+			delay(10);
 			//Causing a delay for 10ms
 		}
 		// Returns index of last merged pair
@@ -304,6 +307,7 @@ public class SortShow extends JPanel {
 	{
 		//updates lines
 		paintComponent(this.getGraphics());
+		delay(10);
 		//if low is less than high, execute
 		//else, they are equal and we have finished sorting
 		if(low < high)
