@@ -382,6 +382,49 @@ public class SortShow extends JPanel {
 		}
 	}
 
+	public void insertionSort(){
+		//loop through array starting at second element
+		for(int i = 1; i < total_number_of_lines; i++){
+			//variables for
+			int key = lines_lengths[i];
+			int j = i - 1;
+
+			while(j>=0 && lines_lengths[j] > key){
+				lines_lengths[j+1] = lines_lengths[j];
+				j -= 1;
+			}
+			lines_lengths[j+1] = key;
+
+			// Optionally, update the UI to show the current state
+			paintComponent(this.getGraphics());
+
+			// Introduce a delay for visualization purposes
+			delay(10);
+		}
+	}
+
+	public void shellSort(){
+		int gap = total_number_of_lines/2;
+		for(; gap > 0; gap /= 2){
+			for(int i = gap; i < total_number_of_lines; i+=1){
+				int hold = lines_lengths[i];
+				int j;
+
+				for(j = i; j>= gap && lines_lengths[j-gap] > hold; j -= gap) {
+					lines_lengths[j] = lines_lengths[j-gap];
+				}
+
+				lines_lengths[j] = hold;
+
+				// Optionally, update the UI to show the current state
+				paintComponent(this.getGraphics());
+
+				// Introduce a delay for visualization purposes
+				delay(10);
+			}
+		}
+	}
+
 
 	//////////////////////////////////////////////////////////////////////
 
