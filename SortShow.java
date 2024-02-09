@@ -86,7 +86,7 @@ public class SortShow extends JPanel {
 			swap(imin, i);
 			paintComponent(this.getGraphics());
 			delay(10);
-			System.out.println(lines_lengths[i]);
+			//System.out.println(lines_lengths[i]);
 		}
 
 		//getting the date and time when the selection sort ends
@@ -438,10 +438,9 @@ public class SortShow extends JPanel {
 
 				// Optionally, update the UI to show the current state
 				paintComponent(this.getGraphics());
-
-				// Introduce a delay for visualization purposes
-				delay(10);
 			}
+			// Introduce a delay for visualization purposes
+			delay(10);
 		}
 		//getting time it took to execute quick sort
 		Calendar end = Calendar.getInstance();
