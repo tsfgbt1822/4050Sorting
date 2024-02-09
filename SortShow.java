@@ -20,7 +20,7 @@ public class SortShow extends JPanel {
 	public final int total_number_of_lines = 256;
 	// An array to holds the scrambled lines_lengths
 	public int[] scramble_lines;
-	//A temp Array that is used later for sorts
+	//temp Array that is used later for sorts
 	public int[] tempArray;
 
 	//the default constructor for the SortShow class
