@@ -25,14 +25,24 @@ public class SortGUI {
 	public static double qsortTime = 0.0;
 	// Variable to hold the amount of time Bubble Sort takes to execute
 	public static double bubbleSortTime = 0.0;
+	//variable to hold the amount of time Insertion Sort takes to execute
+	public static double insertionSortTime = 0.0;
+	//variable to hold the amount of time Shell Sort takes to execute
+	public static double shellSortTime = 0.0;
 	//Boolean variable that is made to keep track whether or not the selection sort has already been used
 	public boolean Selection_Done = false;
 	//Boolean variable that is made to keep track whether or not the recursive merge sort has already been used
 	public boolean Recersive_Merge_Done = false;
 	//Boolean variable that is made to keep track whether or not the iterative merge sort has already been used
 	public boolean Iterative_Merge_Done = false;
-	//Boolean variable made to keeo track of whether or not quick sort has already been used
+	//Boolean variable made to keep track of whether or not quick sort has already been used
 	public boolean Quick_Sort_Done = false;
+	//Boolean variable made to keep track of whether or not insertion sort has already been used
+	public boolean Insertion_Sort_Done = false;
+	//Boolean variable made to keep track of whether or not shell sort has already been used
+	public boolean Shell_Sort_Done = false;
+	//Boolean variable made to keep track of whether or not bubble sort has already been used
+	public boolean Bubble_Sort_Done = false;
 	//Making a object from the class SortShow
 	SortShow sortArea = new SortShow();
 
@@ -66,6 +76,10 @@ public class SortGUI {
 		JRadioButton qsort = new JRadioButton("Quick");
 		//making a bubble sort button with text "Bubble" on it
 		JRadioButton bubble = new JRadioButton("Bubble");
+		//making a insertion sort button with text "Insertion" on it
+		JRadioButton insertion = new JRadioButton("Insertion");
+		//making a shell sort button with text "Shell" on it
+		JRadioButton shell = new JRadioButton("Shell");
 		//making a reset button with a text "Reset" on it
 		JRadioButton reset = new JRadioButton("Reset");
 		//A label that displays the time it took for the Selection sort took to execute
@@ -73,6 +87,9 @@ public class SortGUI {
 		JLabel selection_time_taken = new JLabel("");
 		JLabel bubble_time_label = new JLabel("Bubble Time");
 		JLabel bubble_time_taken = new JLabel("");
+		//A label that displays the time it took for Insertion sort to execute
+		JLabel insertion_time_label = new JLabel("Insertion Time");
+		JLabel insertion_time_taken = new JLabel("");
 		//A label that displays the time it took for the recursive merge sort took to execute
 		JLabel rmerge_time_label = new JLabel("Merge-Rec Time");
 		JLabel rmerge_time_taken = new JLabel("");
@@ -82,6 +99,9 @@ public class SortGUI {
 		//Label that displays time it took for quick sort to execute
 		JLabel qsort_time_label = new JLabel("Quick Time");
 		JLabel qsort_time_taken = new JLabel("");
+		//A label that displays the time it took for Shell sort to execute
+		JLabel shell_time_label = new JLabel("Shell Time");
+		JLabel shell_time_taken = new JLabel("");
 
 		//the default constructor for the class MyScreen
 		public MyScreen() {
@@ -96,10 +116,18 @@ public class SortGUI {
 			qsort_time_taken.setForeground(Color.RED);
 			//the time displayed for bubble sort will be the colour red
 			bubble_time_taken.setForeground(Color.RED);
+			//the time displayed for insertion sort will be the colour red
+			insertion_time_taken.setForeground(Color.RED);
+			//the time displayed for shell sort will be the colour red
+			shell_time_taken.setForeground(Color.RED);
 			//The selection button text will be the colour blue
 			selection.setForeground(Color.BLUE);
 			//The bubble button text will be the colour blue
 			bubble.setForeground(Color.BLUE);
+			//The insertion button text will be the colour blue
+			insertion.setForeground(Color.BLUE);
+			//The shell button text will be the colour blue
+			shell.setForeground(Color.BLUE);
 			//The recursive merge button text will be the colour blue
 			rmerge.setForeground(Color.BLUE);
 			//The iterative merge button text will be the colour blue
@@ -123,6 +151,10 @@ public class SortGUI {
 			radio_button_selection_Panel.add(qsort);
 			//adds bubble sort button to radio_button_selection_Panel
 			radio_button_selection_Panel.add(bubble);
+			//adds insertion sort button to radio_button_selection_Panel
+			radio_button_selection_Panel.add(insertion);
+			//adds shell sort button to radio_button_selection_Panel
+			radio_button_selection_Panel.add(shell);
 			//Adding the reset button to the radio_button_selection_Panel
 			radio_button_selection_Panel.add(reset);
 			//giving the radio_button_selection_Panel a border with a title
@@ -146,6 +178,11 @@ public class SortGUI {
 			time_Panel.add(qsort_time_label);
 			//adds qsort_time_taken to time_Panel
 			time_Panel.add(qsort_time_taken);
+			//adds insertion_time_taken to time_Panel
+			time_Panel.add(insertion_time_taken);
+			//adds shell_time_taken to time_Panel
+			time_Panel.add(shell_time_taken);
+
 
 			//A Panel to hold the buttons_area_Panel and set the GridLayout
 			//This buttons_area_Panel will hold scrambleButton, radio_button_selection and the time_Panel
@@ -258,6 +295,36 @@ public class SortGUI {
 					Set_Available_Chooses(false, false, false, false, true);
 				}
 			});
+
+			//Creating an action listener for insertion sort button
+			insertion.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//Sorting the array in the iterative merge sort method
+					sortArea.insertionSort();
+					//The amount of time taken for iterative merge sort took
+					insertion_time_taken.setText((insertionSortTime / 1000) + " Seconds");
+					//iterative merge sort has finished/been clicked
+					Insertion_Sort_Done = true;
+					//setting all booleans false except for reset
+					Set_Available_Chooses(false, false, false, false,true);
+				}
+			});
+
+			//Creating an action listener for shell sort button
+			shell.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//Sorting the array in the iterative merge sort method
+					sortArea.shellSort();
+					//The amount of time taken for iterative merge sort took
+					shell_time_taken.setText((insertionSortTime / 1000) + " Seconds");
+					//iterative merge sort has finished/been clicked
+					Shell_Sort_Done = true;
+					//setting all booleans false except for reset
+					Set_Available_Chooses(false, false, false, false,true);
+				}
+			});
+
+
 
 			//Creating an action listener for reset button
 			reset.addActionListener(new ActionListener() {

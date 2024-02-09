@@ -81,7 +81,7 @@ public class SortShow extends JPanel {
 		//moves boundary of unsorted array after each selection/swap
 		for(int i = 0; i < size-1; i++)
 		{
-			imin = getIndexOfSmallest(i, size);
+			imin = getIndexOfSmallest(i, size - 1);
 			swap(imin, i);
 			paintComponent(this.getGraphics());
 			System.out.println(lines_lengths[i]);
@@ -102,7 +102,7 @@ public class SortShow extends JPanel {
 		int imin = first;
 
 		//loop through all elements of array from start to last
-		for(int i = 0; i < last-1; i++)
+		for(int i = first + 1; i <= last; i++)
 		{
 			//if value at index i is less than value currently held in position of imin
 			// assign index to imin, is now holding the smallest value found so far
@@ -120,7 +120,7 @@ public class SortShow extends JPanel {
 		// Getting the date and time when the recursive merge sort starts
 		Calendar start = Calendar.getInstance();
 
-		// Start the recursive sorting process
+		// Start the sorting
 		R_MergeSort(0, total_number_of_lines - 1);
 
 		Calendar end = Calendar.getInstance();
@@ -141,7 +141,7 @@ public class SortShow extends JPanel {
 		paintComponent(this.getGraphics());
 	}
 
-	// Method to merge two sorted halves
+	// merge two sorted halves
 	public void R_Merge(int first, int mid, int last) {
 		// Temporary array to hold merged result
 		int[] temp = new int[last - first + 1];
@@ -349,15 +349,15 @@ public class SortShow extends JPanel {
 	//////////////////////////////////////////////////////////////////////
 
 	public void bubbleSort() {
-		// Flag to track if a swap has occurred during a pass
+		// track if a swap has occurred during a pass
 		boolean swapped;
 
-		// Outer loop for each pass through the array
+		// loop for each pass through the array
 		for (int i = 0; i < total_number_of_lines - 1; i++) {
-			// Initially set swapped to false on each new pass
+			// set swapped to false on each new pass
 			swapped = false;
 
-			// Inner loop for comparing adjacent elements
+			// loop for comparing adjacent elements
 			for (int j = 0; j < total_number_of_lines - 1 - i; j++) {
 				// Compare adjacent elements and swap if out of order
 				if (lines_lengths[j] > lines_lengths[j + 1]) {
@@ -369,10 +369,32 @@ public class SortShow extends JPanel {
 				}
 			}
 
-			// If no swaps occurred during this pass, the array is sorted
+			// If no swaps occurred, array is sorted
 			if (!swapped) {
 				break;
 			}
+
+			paintComponent(this.getGraphics());
+
+			delay(10);
+		}
+	}
+
+
+	//////////////////////////////////////////////////////////////////////
+
+	public void insertionSort(){
+		//loop through array starting at second element
+		for(int i = 1; i < total_number_of_lines; i++){
+			//variables for
+			int key = lines_lengths[i];
+			int j = i - 1;
+
+			while(j>=0 && lines_lengths[j] > key){
+				lines_lengths[j+1] = lines_lengths[j];
+				j -= 1;
+			}
+			lines_lengths[j+1] = key;
 
 			// Optionally, update the UI to show the current state
 			paintComponent(this.getGraphics());
@@ -382,9 +404,29 @@ public class SortShow extends JPanel {
 		}
 	}
 
+	public void shellSort(){
+		int gap = total_number_of_lines/2;
+		for(; gap > 0; gap /= 2){
+			for(int i = gap; i < total_number_of_lines; i+=1){
+				int hold = lines_lengths[i];
+				int j;
+
+				for(j = i; j>= gap && lines_lengths[j-gap] > hold; j -= gap) {
+					lines_lengths[j] = lines_lengths[j-gap];
+				}
+
+				lines_lengths[j] = hold;
+
+				// Optionally, update the UI to show the current state
+				paintComponent(this.getGraphics());
+
+				// Introduce a delay for visualization purposes
+				delay(10);
+			}
+		}
+	}
 
 	//////////////////////////////////////////////////////////////////////
-
 
 	//This method resets the window to the scrambled lines display
 	public void reset(){
