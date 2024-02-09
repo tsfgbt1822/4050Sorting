@@ -409,7 +409,7 @@ public class SortGUI {
 		}
 	}
 
-	//The main method
+	//main method
 	public static void main(String[] args) {
 		//initialize the class
 		SortGUI sort_GUI = new SortGUI();
