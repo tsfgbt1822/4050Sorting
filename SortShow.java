@@ -141,7 +141,7 @@ public class SortShow extends JPanel {
 		paintComponent(this.getGraphics());
 	}
 
-	// merge the two sorted halves
+	// merge two sorted halves
 	public void R_Merge(int first, int mid, int last) {
 		// Temporary array to hold merged result
 		int[] temp = new int[last - first + 1];
