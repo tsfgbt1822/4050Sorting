@@ -310,7 +310,7 @@ public class SortGUI {
 				}
 			});
 
-			//Creating an action listener for shell sort button
+			//Creates an action listener for shell sort button
 			shell.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Sorting the array in the iterative merge sort method
