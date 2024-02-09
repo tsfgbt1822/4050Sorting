@@ -130,7 +130,6 @@ public class SortShow extends JPanel {
 		
 		// Recursive merge sort method with array bounds
 		public void R_MergeSort(int first, int last) {
-			paintComponent(this.getGraphics());
 			if (first < last) {
 				int mid = (first + last) / 2;
 				R_MergeSort(first, mid); // Sort the first half
@@ -139,6 +138,7 @@ public class SortShow extends JPanel {
 		
 				delay(10); 
 			}
+			paintComponent(this.getGraphics());
 		}
 		
 		// Method to merge two sorted halves
@@ -348,9 +348,40 @@ public class SortShow extends JPanel {
 
 	//////////////////////////////////////////////////////////////////////
 
-	public void bubbleSort(){
+	public void bubbleSort() {
+		// Flag to track if a swap has occurred during a pass
+		boolean swapped;
 
+		// Outer loop for each pass through the array
+		for (int i = 0; i < total_number_of_lines - 1; i++) {
+			// Initially set swapped to false on each new pass
+			swapped = false;
+
+			// Inner loop for comparing adjacent elements
+			for (int j = 0; j < total_number_of_lines - 1 - i; j++) {
+				// Compare adjacent elements and swap if out of order
+				if (lines_lengths[j] > lines_lengths[j + 1]) {
+					// Swap elements
+					swap(j, j + 1);
+
+					// Set swapped to true since a swap occurred
+					swapped = true;
+				}
+			}
+
+			// If no swaps occurred during this pass, the array is sorted
+			if (!swapped) {
+				break;
+			}
+
+			// Optionally, update the UI to show the current state
+			paintComponent(this.getGraphics());
+
+			// Introduce a delay for visualization purposes
+			delay(10);
+		}
 	}
+
 
 	//////////////////////////////////////////////////////////////////////
 

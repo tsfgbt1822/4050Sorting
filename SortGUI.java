@@ -23,6 +23,8 @@ public class SortGUI {
 	public static double imergeTime = 0.0;
 	//variable holding amount of time quick sort takes to execute
 	public static double qsortTime = 0.0;
+	// Variable to hold the amount of time Bubble Sort takes to execute
+	public static double bubbleSortTime = 0.0;
 	//Boolean variable that is made to keep track whether or not the selection sort has already been used
 	public boolean Selection_Done = false;
 	//Boolean variable that is made to keep track whether or not the recursive merge sort has already been used
@@ -62,11 +64,15 @@ public class SortGUI {
 		JRadioButton imerge = new JRadioButton("Merge Iterative");
 		//makes a quick sort button with text "Quick" on it
 		JRadioButton qsort = new JRadioButton("Quick");
-		//making a reset button with a text "Selection" on it
+		//making a bubble sort button with text "Bubble" on it
+		JRadioButton bubble = new JRadioButton("Bubble");
+		//making a reset button with a text "Reset" on it
 		JRadioButton reset = new JRadioButton("Reset");
 		//A label that displays the time it took for the Selection sort took to execute 
 		JLabel selection_time_label = new JLabel("Selection Time");
-		JLabel selection_time_taken = new JLabel(""); 
+		JLabel selection_time_taken = new JLabel("");
+		JLabel bubble_time_label = new JLabel("Bubble Time");
+		JLabel bubble_time_taken = new JLabel("");
 		//A label that displays the time it took for the recursive merge sort took to execute 
 		JLabel rmerge_time_label = new JLabel("Merge-Rec Time");
 		JLabel rmerge_time_taken = new JLabel("");
@@ -88,8 +94,12 @@ public class SortGUI {
 			imerge_time_taken.setForeground(Color.RED);
 			//the time displayed for iterative merge sort will be the colour red
 			qsort_time_taken.setForeground(Color.RED);
+			//the time displayed for bubble sort will be the colour red
+			bubble_time_taken.setForeground(Color.RED);
 			//The selection button text will be the colour blue
 			selection.setForeground(Color.BLUE);
+			//The bubble button text will be the colour blue
+			bubble.setForeground(Color.BLUE);
 			//The recursive merge button text will be the colour blue
 			rmerge.setForeground(Color.BLUE);
 			//The iterative merge button text will be the colour blue
@@ -111,6 +121,8 @@ public class SortGUI {
 			radio_button_selection_Panel.add(imerge);
 			//adds quick sort button to radio_button_selection_Panel
 			radio_button_selection_Panel.add(qsort);
+			//adds bubble sort button to radio_button_selection_Panel
+			radio_button_selection_Panel.add(bubble);
 			//Adding the reset button to the radio_button_selection_Panel
 			radio_button_selection_Panel.add(reset);
 			//giving the radio_button_selection_Panel a border with a title 
@@ -221,6 +233,29 @@ public class SortGUI {
 					Quick_Sort_Done = true;
 					//setting all booleans false except for reset
 					Set_Available_Chooses(false, false, false, false,true);
+				}
+			});
+
+			bubble.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					// Start timing
+					long startTime = System.currentTimeMillis();
+
+					// Perform Bubble Sort
+					sortArea.bubbleSort();
+
+					// End timing
+					long endTime = System.currentTimeMillis();
+					bubbleSortTime = endTime - startTime;
+
+					// Display the time taken for Bubble Sort
+					// Assuming you have a JLabel to display Bubble Sort time similar to selection_time_taken
+					bubble_time_taken.setText(bubbleSortTime / 1000 + " Seconds");
+
+					// Update GUI to reflect the sorted state
+					// sortArea.repaint(); // Call repaint() to update the GUI with sorted array
+					// Disable all sort buttons except Reset
+					Set_Available_Chooses(false, false, false, false, true);
 				}
 			});
 
